@@ -1,8 +1,10 @@
-[
-  {
-    "id": "M2",
-    "name": "Tram M2",
-    "file": "m2.json",
-    "color": "#7AB929"
-  }
-]
+{
+  "lines": [
+    {
+      "id": "m2",
+      "name": "M2",
+      "product": "tram",
+      "color": "#d81e05"
+    }
+  ]
+}

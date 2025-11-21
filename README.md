@@ -5,24 +5,23 @@ KiezTransit/
 │   ├── map.html
 │   └── data/
 │       ├── lines.json
-│       ├── m2.json
-│       └── (weitere Linien später: m10.json, u2.json ...)
+│       └── <id>.line.json    (wird automatisch erzeugt)
+│
+├── config/
+│   └── lines/
+│       ├── m2.config.json
+│       ├── u1.config.json
+│       ├── s8.config.json
+│       └── bus_255.config.json
 │
 ├── scripts/
-│   ├── build_line.py
-│   └── helpers/
-│       ├── fetch_stops.py
-│       └── fetch_shape.py
+│   └── build_line.py
 │
 └── src/
     ├── api/
     │   └── vbb.py
-    │
-    ├── lines/
-    │   └── m2.py
-    │
-    └── ui/
-        └── console.py
-
-main.py (optional – muss nicht im Projektroot liegen)
+    ├── ui/
+    │   └── console.py
+    └── lines/
+        └── (optional weitere Live-Linienmodule)
 ```

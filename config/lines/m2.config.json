@@ -1,0 +1,8 @@
+{
+  "id": "m2",
+  "name": "M2",
+  "product": "tram",
+  "color": "#d81e05",
+  "seedStopId": "900141001",
+  "direction": "S+U Alexanderplatz"
+}

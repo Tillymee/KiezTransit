@@ -1,11 +1,10 @@
-# scripts/helpers/fetch_stops.py
 import requests
 from typing import List, Dict
 
 
 def fetch_stops_for_names(base_url: str, names: List[str]) -> List[Dict]:
     """
-    Sucht zu einer Liste von Haltestellennamen die passenden "stop"-Objekte
+    Sucht zu einer Liste von Haltestellennamen passende "stop"-Objekte
     via /locations?query=...
     Rückgabe: Liste von Dicts mit name, id, lat, lon.
     """

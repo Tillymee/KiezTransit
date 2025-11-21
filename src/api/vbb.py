@@ -1,64 +1,52 @@
-# src/api/vbb.py
-import math
-from datetime import datetime
-from datetime import timezone
-
 import requests
+from datetime import datetime, timezone
+import math
+from typing import Dict, Any
 
-# Lokales vbb-rest (Docker)
 BASE_URL = "http://localhost:3000"
 
 
-def get_departures(stop_id: str, duration: int = 30, results: int = 10):
+def get_departures(
+        stop_id: str,
+        duration: int = 30,
+        results: int = 10,
+        remarks: bool = False,
+) -> Dict[str, Any]:
     """
-    Holt Abfahrten von vbb-rest für eine Haltestelle.
-    Nutzt /stops/{id}/departures.
+    Wrapper um /stops/{id}/departures am lokalen VBB-Proxy.
     """
     url = f"{BASE_URL}/stops/{stop_id}/departures"
-
     params = {
         "duration": duration,
         "results": results,
-        "remarks": True,
+        "remarks": remarks,
         "tram": True,
         "bus": True,
+        "suburban": True,
+        "subway": True,
+        "ferry": True,
+        "express": True,
+        "regional": True,
     }
 
     r = requests.get(url, params=params)
     r.raise_for_status()
-    data = r.json()
-
-    # vbb-rest liefert normalerweise {"departures": [...]}
-    if isinstance(data, dict) and "departures" in data:
-        return data["departures"]
-    return data
+    return r.json()
 
 
-def minutes_until(timestamp: str) -> int:
+def minutes_until(ts: str) -> int:
     """
-    Rechnet 'when' (ISO-String mit Offset, z.B. 2025-11-21T13:04:00+01:00)
-    in Minuten bis zur Abfahrt um – möglichst nah an der BVG-App.
-
-    Hack:
-    - Wir ziehen pauschal 60 Sekunden ab, weil die API oft 1 Minute
-      „später“ erscheint als die BVG-App.
-    - Negative Werte → 0 (Zug ist quasi "jetzt" oder gerade weg).
+    Rechnet ein ISO-8601-Datum (z.B. '2025-11-21T15:30:00+01:00')
+    in Minuten bis zur Abfahrtszeit um.
     """
-    # Zeitstempel parsen (inkl. +01:00 Offset)
-    dt = datetime.fromisoformat(timestamp)
+    # Kleine Robustheit für …Z am Ende
+    if ts.endswith("Z"):
+        ts = ts.replace("Z", "+00:00")
 
-    # Lokale Zeit jetzt
+    dt = datetime.fromisoformat(ts)
     now = datetime.now(timezone.utc).astimezone()
 
-    # Differenz in Sekunden
-    diff_sec = (dt - now).total_seconds()
-
-    # ⚙️ 1-Minuten-Offset zur BVG-App:
-    diff_sec -= 60
-
-    if diff_sec <= 0:
+    diff = (dt - now).total_seconds()
+    if diff <= 0:
         return 0
-
-    # Aufrunden auf volle Minuten
-    minutes = math.ceil(diff_sec / 60)
-    return max(minutes, 0)
+    return math.ceil(diff / 60)
