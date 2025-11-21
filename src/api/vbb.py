@@ -1,5 +1,6 @@
 import requests
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+import math
 
 # Lokale vbb-rest API
 BASE_URL = "http://localhost:3000"
@@ -21,9 +22,31 @@ def get_departures(stop_id, duration=30, results=10):
     return r.json()
 
 
-def minutes_until(timestamp):
-    # vbb-rest liefert z. B. 2025-11-21T12:12:00+01:00
-    dt = datetime.fromisoformat(timestamp)
+# ---- BVG-MINUTENLOGIK ----
+
+def bvg_display_time(when_iso):
+    dt = datetime.fromisoformat(when_iso)
+
+    # BVG zeigt IMMER 1 Minute früher an
+    dt = dt - timedelta(minutes=1)
+
+    # Sekunden entfernen (BVG zeigt nie Sekunden)
+    dt = dt.replace(second=0)
+
+    return dt.strftime("%H:%M")
+
+
+def bvg_minutes(when_iso):
+    dt = datetime.fromisoformat(when_iso)
     now = datetime.now(timezone.utc).astimezone()
-    diff = (dt - now).total_seconds() / 60
-    return int(diff)
+
+    # BVG: IMMER -1 Minute Offset zur realen Zeit
+    dt = dt - timedelta(minutes=1)
+
+    diff_sec = (dt - now).total_seconds()
+
+    if diff_sec <= 0:
+        return 0
+
+    # alles Positive aufrunden
+    return math.ceil(diff_sec / 60)
