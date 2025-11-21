@@ -1,16 +1,28 @@
 ```
-kieztransit/
-│── src/
-│ ├── api/
-│ │ └── bvg.py # BVG/VBB API
-│ ├── ui/
-│ │ └── eink.py # später E-Ink Rendering
-│ ├── data/
-│ │ └── stations.json # optionale Haltestellen-Daten
-│ └── main.py # Einstiegspunkt
+KiezTransit/
 │
-│── assets/
-│ └── map_base.png # Liniennetz-Karte (später)
+├── public/
+│   ├── map.html
+│   └── data/
+│       ├── lines.json
+│       ├── m2.json
+│       └── (weitere Linien später: m10.json, u2.json ...)
 │
-└── README.md
+├── scripts/
+│   ├── build_line.py
+│   └── helpers/
+│       ├── fetch_stops.py
+│       └── fetch_shape.py
+│
+└── src/
+    ├── api/
+    │   └── vbb.py
+    │
+    ├── lines/
+    │   └── m2.py
+    │
+    └── ui/
+        └── console.py
+
+main.py (optional – muss nicht im Projektroot liegen)
 ```
