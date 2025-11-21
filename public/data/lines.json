@@ -5,6 +5,12 @@
       "name": "M2",
       "product": "tram",
       "color": "#d81e05"
+    },
+    {
+      "id": "s8",
+      "name": "S8",
+      "product": "suburban",
+      "color": "#008000"
     }
   ]
 }
