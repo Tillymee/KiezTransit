@@ -34,16 +34,26 @@ def fetch_stops_for_names(base_url: str, names: List[str]) -> List[Dict]:
             )
             continue
 
-        loc = stop.get("location") or {}
+        # Präziseste Koordinatenquelle bevorzugen
+        platform_loc = stop.get("platformLocation") or {}
+
+        if platform_loc.get("latitude") and platform_loc.get("longitude"):
+            lat = platform_loc.get("latitude")
+            lon = platform_loc.get("longitude")
+        else:
+            loc = stop.get("location") or {}
+            lat = loc.get("latitude")
+            lon = loc.get("longitude")
+
         results.append(
             {
                 "name": stop.get("name", name),
                 "id": stop.get("id"),
-                "lat": loc.get("latitude"),
-                "lon": loc.get("longitude"),
+                "lat": lat,
+                "lon": lon,
             }
         )
 
-        print(f"✓ {name}: {loc.get('latitude')}, {loc.get('longitude')}")
+        print(f"✓ {name}: {lat}, {lon}")
 
     return results

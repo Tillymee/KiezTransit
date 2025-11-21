@@ -7,110 +7,110 @@
     {
       "id": "900141001",
       "name": "Heinersdorf (Berlin)",
-      "lat": 52.572342,
-      "lon": 13.437453
+      "lat": 52.57230321011236,
+      "lon": 13.437406043820223
     },
     {
       "id": "900141503",
       "name": "Rothenbachstr. (Berlin)",
-      "lat": 52.570212,
-      "lon": 13.437705
+      "lat": 52.57021259510073,
+      "lon": 13.437709669251868
     },
     {
       "id": "900141002",
       "name": "Heinersdorf Kirche (Berlin)",
-      "lat": 52.568162,
-      "lon": 13.440393
+      "lat": 52.56762318584071,
+      "lon": 13.43977721238938
     },
     {
       "id": "900141504",
       "name": "Am Wasserturm (Berlin)",
-      "lat": 52.565115,
-      "lon": 13.43597
+      "lat": 52.56515608924238,
+      "lon": 13.435897409005122
     },
     {
       "id": "900141502",
       "name": "Tino-Schwierzina-Str. (Berlin)",
-      "lat": 52.562265,
-      "lon": 13.434846
+      "lat": 52.562293004751155,
+      "lon": 13.434773881570036
     },
     {
       "id": "900141506",
       "name": "Am Steinberg (Berlin)",
-      "lat": 52.558382,
-      "lon": 13.4333
+      "lat": 52.5584038499841,
+      "lon": 13.433244458750092
     },
     {
       "id": "900141507",
       "name": "Prenzlauer Promenade/Am Steinberg (Berlin)",
-      "lat": 52.556674,
-      "lon": 13.42992
+      "lat": 52.55673223481111,
+      "lon": 13.429899720145652
     },
     {
       "id": "900110013",
       "name": "Prenzlauer Allee/Ostseestr. (Berlin)",
-      "lat": 52.551218,
-      "lon": 13.430181
+      "lat": 52.5512416008458,
+      "lon": 13.430075233246583
     },
     {
       "id": "900110509",
       "name": "Erich-Weinert-Str. (Berlin)",
-      "lat": 52.547802,
-      "lon": 13.428662
+      "lat": 52.54783184522299,
+      "lon": 13.428588184333984
     },
     {
       "id": "900110002",
       "name": "S Prenzlauer Allee (Berlin)",
-      "lat": 52.544799,
-      "lon": 13.427421
+      "lat": 52.54481952355142,
+      "lon": 13.427370239460606
     },
     {
       "id": "900110510",
       "name": "Fröbelstr. (Berlin)",
-      "lat": 52.541968,
-      "lon": 13.425857
+      "lat": 52.54199220427099,
+      "lon": 13.425813463746326
     },
     {
       "id": "900110017",
       "name": "Prenzlauer Allee/Danziger Str. (Berlin)",
-      "lat": 52.539181,
-      "lon": 13.424248
+      "lat": 52.53920079559173,
+      "lon": 13.424214590339599
     },
     {
       "id": "900110508",
       "name": "Marienburger Str. (Berlin)",
-      "lat": 52.53554,
-      "lon": 13.42209
+      "lat": 52.53555950290329,
+      "lon": 13.42205708431935
     },
     {
       "id": "900110507",
       "name": "Knaackstr. (Berlin)",
-      "lat": 52.533221,
-      "lon": 13.420706
+      "lat": 52.53323505149071,
+      "lon": 13.420682789019041
     },
     {
       "id": "900110506",
       "name": "Prenzlauer Allee/Metzer Str. (Berlin)",
-      "lat": 52.530983,
-      "lon": 13.419349
+      "lat": 52.53100736287021,
+      "lon": 13.4193218042379
     },
     {
       "id": "900110022",
       "name": "Mollstr./Prenzlauer Allee (Berlin)",
-      "lat": 52.526866,
-      "lon": 13.41596
+      "lat": 52.52709660934981,
+      "lon": 13.415736829661471
     },
     {
       "id": "900100731",
       "name": "S+U Alexanderplatz/Memhardstr. (Berlin) [Tram]",
-      "lat": 52.523513,
-      "lon": 13.411366
+      "lat": 52.52352995019258,
+      "lon": 13.411352414919183
     },
     {
       "id": "900100024",
       "name": "S+U Alexanderplatz Bhf/Dircksenstr. (Berlin)",
-      "lat": 52.521481,
-      "lon": 13.411924
+      "lat": 52.521495760173465,
+      "lon": 13.411932742564282
     }
   ],
   "shape": {
